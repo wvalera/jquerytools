@@ -3,4 +3,155 @@ Acabo de modificar el archivo index2.html
 1) git status
 2) git add index2.html
 3) git commit -m "Other change"
-4) git push origin dev
+4) git push origin master
+
+
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Instalando y configurando git.
+
+
+Abrir consola de comandos:
+
+* Configurar un usuario:
+
+
+	git config --global user.name "Wilkeins Valera"
+
+Verificar que fue configurado correctamente:
+
+
+	git config --global user.name
+
+
+Configurar Correo electronico:
+
+	git config --global user.email "wilkeins.valera@pepsico.com"
+
+Nota: Debe ser con el correo con que abrieron su cuenta github.
+
+
+	user -> wvalera
+	email -> wilkeins.valera@pepsico.com
+	password -> wilkeins26 
+
+Ver si se configuro el email + otro comando:
+	
+	git config --global.user.email
+
+	git config --list
+
+Configurando SSH:
+
+Es un sistema que cifra cada uno de los archivos antes de subirlos al repositorio.
+
+	La ventaja de esto es cuando subimos cosas via ftp, no ponemos en riesgo los datos que estamos pasando.g
+
+
+Configurar llave:
+
+
+	ssh-keygen
+
+	Your identification has been saved in cls.
+
+	Your public key has been saved in cls.pub.
+
+	clave -> Wilkeins
+
+
+Utilizar consola gitbash
+
+
+Nota: La llave es un codigo de identifacador unico, la clave que acabamos de generar la tenemos que copiar y pegar en 
+github para que github sepa que el ordenador de wilkeins valera quiere conectarse a su perfil.
+
+Como sacar la llave?
+
+
+Ejecutar 
+
+	cd .ssh
+	cat id_rsa.pub
+
+aqui aparece la llave completa para conectarse con github
+
+
+Verificar que la llave ssh esta instalada en github.
+
+
+	ssh -T git@github.com
+	ssh: connect to host github.com port 22: Bad file number
+
+
+creamos el directorio jquerytools
+
+	git init -> es un comando para indicarle a git "Quiero que rastrees todos los archivos que yo vaya subiendo aqui",
+	el mismo va seguir el rastro de archivos, carpetas, imagenes, pdfs todo.
+	
+
+
+Conectar el repositorio local de nuestra computadora con el repositorio de github, cuando se trabaja en local es "local"
+y cuando se trabaja remoto es "remote".
+
+	git remote add origin o branch pero por default es origin -> es el origen de un repositorio nuevo dentro de su computadora
+	
+ 	git remote add origin https://github.com/wvalera/jquerytools.git
+
+	despues de ejecutar el comando simplemente no debe aparecer nada y eso significa que todo esta bien, 
+
+	que estan bien las llaves ssh y todo.
+
+Luego ejecutamos
+	
+	git pull -> Para obtener una copia completa de nuestro repositorio en github
+
+	git remote branch -> Puede que el proyecto tenga varias ramas o versiones, git permite conectarse a dististas ramas.
+	
+	git checkout master -> indica en que rama estas.
+
+	
+dentro de nuestro repositorio en github tenemos varias ramas ejemplo:
+
+	jquerytools-Master
+	jquery-dev
+	jquery-other.
+
+Si queremos ir a la rama de desarrollo:
+
+
+	git checkout dev -> nos acabamos de mover de rama.
+
+
+Es decir puedes trabajar distintas versiones de tu proyecto sin tocar el original.
+
+
+	Si estamos en el master y creamos un archivo llamado master.html y agregamos un texto.
+
+
+Queremos subir estos cambios, Como verificamos si ocurrio algun cambio?
+
+	git status -> verifica si existe algun cambio en nuestro repositorio en este caso modificamos master.html
+
+Para subir el cambio ejecutamos
+
+
+	git add master.html
+		master2.html
+
+Si no queremos subir los mil archivos del proyecto completo, si no mas bien solo los que creamos o modificamos debemos ejecutar
+
+	git commit -m "Con esto envio solo los archivos que he creado o modificado ultimamente y se envia con este mensaje"
+
+Si ejecutamos git status -> Para preguntar como vamos nos debe aparecer que no hay nada. 
+
+
+Y como lo subimos al repositorio?
+
+
+	Con el siguiente comando:
+
+		git push origin master -> Los empujamos al repositorio y de inidcamos a que rama lo va realizar.
+
+developed by Wilkeins valera
